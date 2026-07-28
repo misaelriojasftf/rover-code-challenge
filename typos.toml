@@ -1,0 +1,7 @@
+[default]
+
+[default.extend-words]
+nam = "nam"
+
+[files]
+extend-exclude = ["*.csv"]

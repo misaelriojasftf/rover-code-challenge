@@ -4,9 +4,24 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/cli.js",
   "scripts": {
+    "start": "node src/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "jest": "^30.4.2"
+  },
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.1"
   }
 }

@@ -1,0 +1,23 @@
+{
+    "eslint.useFlatConfig": true,
+    "eslint.validate": [
+        "javascript"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll.eslint": "explicit"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "js/ts.suggest.autoImports": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/coverage": true
+    },
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/coverage": true
+    },
+    "jest.runMode": "on-demand"
+}
