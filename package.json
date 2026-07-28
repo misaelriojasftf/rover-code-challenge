@@ -9,18 +9,22 @@
   "scripts": {
     "start": "node src/cli.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+    "coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
     "eslint": "^10.8.0",
     "globals": "^17.8.0",
-    "jest": "^30.4.2"
-  },
-  "engines": {
-    "node": ">=24.18.0",
-    "npm": ">=11.16.0"
+    "husky": "^9.1.7",
+    "jest": "^30.4.2",
+    "lint-staged": "^17.2.0"
   },
   "imports": {
     "#application/*": "./src/application/*",
@@ -29,7 +33,13 @@
     "#infrastructure/*": "./src/infrastructure/*",
     "#utils/*": "./src/utils/*"
   },
-  "dependencies": {
-    "csv-parser": "^3.2.1"
+  "lint-staged": {
+    "*.js": [
+      "eslint --max-warnings=0"
+    ]
+  },
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
   }
 }
