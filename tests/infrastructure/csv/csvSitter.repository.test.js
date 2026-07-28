@@ -1,5 +1,5 @@
 import { Sitter } from '#domain/entities/sitter.entity.js';
-import { INPUT_CSV, OUTPUT_CSV } from '#infrastructure/constants/index.js';
+import { DEFAULT_CSV_DELIMITER, INPUT_CSV, OUTPUT_CSV } from '#infrastructure/constants/index.js';
 import { CsvSitterRepository } from '#infrastructure/csv/csvSitter.repository.js';
 import { jest } from '@jest/globals';
 
@@ -98,9 +98,9 @@ describe('CsvSitterRepository', () => {
             expect(csv.write).toHaveBeenCalledWith(
                 OUTPUT_CSV,
                 [
-                    'email,name,profile_score,ratings_score,search_score',
-                    'john@test.com,John,10,8,9',
-                    'jane@test.com,Jane,9,7,8',
+                    ['email', 'name', 'profile_score', 'ratings_score', 'search_score'].join(DEFAULT_CSV_DELIMITER),
+                    ['john@test.com', 'John', '10', '8', '9'].join(DEFAULT_CSV_DELIMITER),
+                    ['jane@test.com', 'Jane', '9', '7', '8'].join(DEFAULT_CSV_DELIMITER),
                 ].join('\n'),
             );
 
