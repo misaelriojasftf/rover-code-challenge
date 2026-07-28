@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 
 import { CsvFileAdapter } from '#infrastructure/csv/csvFile.adapter.js';
 
-const CSV_TEST_PATH = 'src/data/test.csv';
+const CSV_TEST_PATH = 'data/test.csv';
 describe('CsvFileAdapter', () => {
     let csvFileAdapter;
 
