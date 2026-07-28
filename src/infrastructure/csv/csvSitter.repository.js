@@ -1,6 +1,7 @@
 import { Sitter } from '#domain/entities/sitter.entity.js';
 import { SitterRepository } from '#domain/repository/sitter.repository.js';
 import { INPUT_CSV, OUTPUT_CSV } from '#infrastructure/constants/index.js';
+import { logMessage } from '#utils/logger.util.js';
 
 export class CsvSitterRepository extends SitterRepository {
 
@@ -46,6 +47,8 @@ export class CsvSitterRepository extends SitterRepository {
         ].join('\n');
 
         await this.csvFileAdapter.write(OUTPUT_CSV, csv);
+
+        logMessage('CsvSitterRepository', 'printAll', 'generated sitters.csv');
 
     };
 
