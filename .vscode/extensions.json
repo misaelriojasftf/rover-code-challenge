@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "tekumara.typos-vscode",
+    "usernamehw.errorlens",
+    "kylinideteam.gitlens",
+    "Orta.vscode-jest"
+  ],
+  "unwantedRecommendations": [
+    "esbenp.prettier-vscode"
+  ]
+}
