@@ -1,0 +1,3 @@
+export const CONSTANT_PROFILE_SCORE = 5;
+export const ALPHABET_LETTERS = 26;
+export const LIMIT_OF_STAYS_FOR_WEIGHT_AVG = 10;
