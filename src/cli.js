@@ -2,18 +2,19 @@ import { CalculateSitterRankingUseCase } from '#application/use-cases/calculateS
 import { SitterScorePolicy } from '#domain/policies/sitterScore.policy.js';
 import { CsvFileAdapter } from '#infrastructure/csv/csvFile.adapter.js';
 import { CsvSitterRepository } from '#infrastructure/csv/csvSitter.repository.js';
+import { log, logError } from './utils/logger.util.js';
 
 async function run() {
     try {
-        console.log('cli-run', 'Starting application');
+        log('cli', 'run', 'Application completed successfully');
         const csvFileAdapter = new CsvFileAdapter();
         const csvSitterRepo = new CsvSitterRepository(csvFileAdapter);
         const sitterScorePolicy = new SitterScorePolicy();
 
         await new CalculateSitterRankingUseCase(csvSitterRepo, sitterScorePolicy).execute();
-        console.log('cli-run', 'Application completed successfully');
+        log('cli', 'run', 'Application completed successfully');
     } catch (err) {
-        console.info('cli-run', err);
+        logError('cli', 'run', err);
         process.exit(1);
     }
 }
