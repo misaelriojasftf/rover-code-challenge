@@ -1,6 +1,6 @@
 import { Sitter } from '#domain/entities/sitter.entity.js';
 import { SitterRepository } from '#domain/repository/sitter.repository.js';
-import { INPUT_CSV, OUTPUT_CSV } from '#infrastructure/constants/index.js';
+import { DEFAULT_CSV_DELIMITER, INPUT_CSV, OUTPUT_CSV } from '#infrastructure/constants/index.js';
 import { logMessage } from '#utils/logger.util.js';
 
 export class CsvSitterRepository extends SitterRepository {
@@ -42,8 +42,8 @@ export class CsvSitterRepository extends SitterRepository {
         const rows = sitterScores.map((e) => e.toList());
 
         const csv = [
-            headers.join(','),
-            ...rows.map(row => row.join(',')),
+            headers.join(DEFAULT_CSV_DELIMITER),
+            ...rows.map(row => row.join(DEFAULT_CSV_DELIMITER)),
         ].join('\n');
 
         await this.csvFileAdapter.write(OUTPUT_CSV, csv);

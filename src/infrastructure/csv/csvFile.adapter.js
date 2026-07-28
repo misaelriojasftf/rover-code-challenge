@@ -1,3 +1,4 @@
+import { DEFAULT_CSV_DELIMITER } from '#infrastructure/constants/index.js';
 import csv from 'csv-parser';
 import { createReadStream, createWriteStream } from 'fs';
 
@@ -13,7 +14,7 @@ export class CsvFileAdapter {
     read(path, onRead) {
         return new Promise((resolve, reject) => {
             createReadStream(path)
-                .pipe(csv({ separator: ';' }))
+                .pipe(csv({ separator: DEFAULT_CSV_DELIMITER }))
                 .on('data', onRead)
                 .on('end', resolve)
                 .on('error', reject);
